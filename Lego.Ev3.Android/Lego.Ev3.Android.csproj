@@ -52,10 +52,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Lego.Ev3.Core\Lego.Ev3.Core.csproj">
-      <Project>{a51efbaa-a596-4537-a1e8-994a547dc4bb}</Project>
+      <Project>{A51EFBAA-A596-4537-A1E8-994A547DC4BB}</Project>
       <Name>Lego.Ev3.Core</Name>
     </ProjectReference>
   </ItemGroup>
