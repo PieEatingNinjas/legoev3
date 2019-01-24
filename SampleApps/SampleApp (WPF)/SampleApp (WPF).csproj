@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleApp</RootNamespace>
     <AssemblyName>SampleApp %28WPF%29</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -146,6 +147,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lego.Ev3.Core\Lego.Ev3.Core.csproj">
+      <Project>{A51EFBAA-A596-4537-A1E8-994A547DC4BB}</Project>
+      <Name>Lego.Ev3.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
       <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
       <Name>Lego.Ev3.Desktop</Name>
