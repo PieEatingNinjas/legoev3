@@ -5,24 +5,25 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{71429B92-62BD-4D3A-8C44-84283031F5DD}</ProjectGuid>
+    <ProjectGuid>{BA4C77B3-ECA8-4965-8B9F-482219BB2BDB}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{9ef11e43-1701-4396-8835-8392d57abb70}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lego.Ev3.Android</RootNamespace>
     <AssemblyName>Lego.Ev3.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk />
-    <TargetFrameworkVersion>v2.2</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,11 +31,12 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;ANDROID</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -43,52 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Lego.Ev3.Core\Brick.cs">
-      <Link>Core\Brick.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickButtons.cs">
-      <Link>Core\BrickButtons.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickChangedEventArgs.cs">
-      <Link>Core\BrickChangedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Command.cs">
-      <Link>Core\Command.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DataReceivedEventArgs.cs">
-      <Link>Core\DataReceivedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DirectCommand.cs">
-      <Link>Core\DirectCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DummyCommunication.cs">
-      <Link>Core\DummyCommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Enums.cs">
-      <Link>Core\Enums.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ICommunication.cs">
-      <Link>Core\ICommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Port.cs">
-      <Link>Core\Port.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Response.cs">
-      <Link>Core\Response.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ResponseManager.cs">
-      <Link>Core\ResponseManager.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\SystemCommand.cs">
-      <Link>Core\SystemCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Desktop\NetworkCommunication.cs">
-      <Link>NetworkCommunication.cs</Link>
-    </Compile>
     <Compile Include="BluetoothCommunication.cs" />
+    <Compile Include="NetworkCommunication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Lego.Ev3.Core\Lego.Ev3.Core.csproj">
+      <Project>{a51efbaa-a596-4537-a1e8-994a547dc4bb}</Project>
+      <Name>Lego.Ev3.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

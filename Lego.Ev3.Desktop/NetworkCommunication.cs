@@ -5,12 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Lego.Ev3.Core;
 
-namespace Lego.Ev3
-#if ANDROID
-	.Android
-#else
-	.Desktop
-#endif
+namespace Lego.Ev3.Desktop
 {
 	/// <summary>
 	/// Communicate with EV3 brick over TCP
