@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lego.Ev3.Tester.Console</RootNamespace>
     <AssemblyName>Lego.Ev3.Tester.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lego.Ev3.Core\Lego.Ev3.Core.csproj">
+      <Project>{A51EFBAA-A596-4537-A1E8-994A547DC4BB}</Project>
+      <Name>Lego.Ev3.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
       <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
       <Name>Lego.Ev3.Desktop</Name>
