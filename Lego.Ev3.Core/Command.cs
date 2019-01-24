@@ -2,8 +2,6 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices.WindowsRuntime;
-
 #if WINRT
 using Windows.Foundation.Metadata;
 using Windows.Foundation;

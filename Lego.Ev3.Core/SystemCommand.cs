@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices.WindowsRuntime;
-
 #if WINRT
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
@@ -39,7 +37,7 @@ namespace Lego.Ev3.Core
 #else
 		Task
 #endif
-		WriteFileAsync([ReadOnlyArray]byte[] data, string devicePath)
+		WriteFileAsync(byte[] data, string devicePath)
 		{
 			return WriteFileAsyncInternal(data, devicePath)
 #if WINRT

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 #if WINRT
 using Windows.Foundation;
@@ -41,6 +40,6 @@ namespace Lego.Ev3.Core
 #else
 		Task
 #endif
-		WriteAsync([ReadOnlyArray]byte[] data);
+		WriteAsync(byte[] data);
 	}
 }

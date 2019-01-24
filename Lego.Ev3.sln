@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Desktop", "Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj", "{79C444DE-86F1-4AFF-903A-4B6ED31655EA}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp (WPF)", "SampleApps\SampleApp (WPF)\SampleApp (WPF).csproj", "{0B140421-4421-4673-972F-7FFB6268F0DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Tester.Phone81", "Testers\Lego.Ev3.Tester.Phone81\Lego.Ev3.Tester.Phone81.csproj", "{63924A3A-F5E3-4974-950B-1235BE9E0104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Core", "Lego.Ev3.Core\Lego.Ev3.Core.csproj", "{A51EFBAA-A596-4537-A1E8-994A547DC4BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -466,6 +468,30 @@ Global
 		{63924A3A-F5E3-4974-950B-1235BE9E0104}.Release|x86.ActiveCfg = Release|x86
 		{63924A3A-F5E3-4974-950B-1235BE9E0104}.Release|x86.Build.0 = Release|x86
 		{63924A3A-F5E3-4974-950B-1235BE9E0104}.Release|x86.Deploy.0 = Release|x86
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|Win32.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|x64.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|ARM.Build.0 = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Win32.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|Win32.Build.0 = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|x64.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|x64.Build.0 = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{A51EFBAA-A596-4537-A1E8-994A547DC4BB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -484,5 +510,8 @@ Global
 		{F5F96642-96B0-4FE3-B20E-6FA496F75D69} = {2DFD69F4-A64B-4CC0-8930-707DA0463C49}
 		{0B140421-4421-4673-972F-7FFB6268F0DC} = {2DFD69F4-A64B-4CC0-8930-707DA0463C49}
 		{63924A3A-F5E3-4974-950B-1235BE9E0104} = {5BBA1B77-840E-44B7-96A0-BBE9DED77AC4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60CA2F86-46FB-434E-B7AA-8E10B3C17F75}
 	EndGlobalSection
 EndGlobal

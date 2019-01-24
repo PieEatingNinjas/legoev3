@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lego.Ev3</RootNamespace>
     <AssemblyName>Lego.Ev3.Desktop</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,50 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Lego.Ev3.Core\Brick.cs">
-      <Link>Core\Brick.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickButtons.cs">
-      <Link>Core\BrickButtons.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickChangedEventArgs.cs">
-      <Link>Core\BrickChangedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Command.cs">
-      <Link>Core\Command.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DataReceivedEventArgs.cs">
-      <Link>Core\DataReceivedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DirectCommand.cs">
-      <Link>Core\DirectCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DummyCommunication.cs">
-      <Link>Core\DummyCommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Enums.cs">
-      <Link>Core\Enums.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ICommunication.cs">
-      <Link>Core\ICommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Port.cs">
-      <Link>Core\Port.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Response.cs">
-      <Link>Core\Response.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ResponseManager.cs">
-      <Link>Core\ResponseManager.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\SystemCommand.cs">
-      <Link>Core\SystemCommand.cs</Link>
-    </Compile>
     <Compile Include="BluetoothCommunication.cs" />
     <Compile Include="UsbCommunication.cs" />
     <Compile Include="HidImports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetworkCommunication.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lego.Ev3.Core\Lego.Ev3.Core.csproj">
+      <Project>{A51EFBAA-A596-4537-A1E8-994A547DC4BB}</Project>
+      <Name>Lego.Ev3.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
