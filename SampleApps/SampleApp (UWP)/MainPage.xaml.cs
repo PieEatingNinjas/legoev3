@@ -1,19 +1,10 @@
 ﻿using Lego.Ev3.Core;
 using Lego.Ev3.UWP;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,157 +16,43 @@ namespace SampleApp__UWP_
     public sealed partial class MainPage : Page
     {
         private Brick _brick;
-        //private MotorControl _selectedMotorControl;
-        //private SensorDataControl _selectedSensorControl;
 
         public MainPage()
         {
             InitializeComponent();
-
-          //  ConnControl.Visibility = Visibility.Visible;
         }
 
         private async void TryToConnect(object sender, RoutedEventArgs e)
         {
-            //Overlay.Show("Connecting");
-
-           // ConnControl.Visibility = Visibility.Visible;
-
+            string message = string.Empty;
             var conType = CreateConnection();
 
-            //Dispatcher.Invoke(new Action(async () =>
-           // {
-                if (conType != null)
+            if (conType != null)
+            {
+                _brick = new Brick(conType, true);
+                _brick.BrickChanged += _brick_BrickChanged;
+                try
                 {
-                    _brick = new Brick(conType, true);
-                    _brick.BrickChanged += _brick_BrickChanged;
-                    try
-                    {
-                        await _brick.ConnectAsync();
-                       // ConnControl.Visibility = Visibility.Collapsed;
-
-                      //  ConnTypeRun.Text = ConnControl.GetConnectionType().ToString();
-
-                    }
-                    catch (Exception ex)
-                    {
-                      //  MessageBox.Show("Could not connect", "Error", MessageBoxButton.OK);
-                    }
+                    await _brick.ConnectAsync();
+                    message = "Connected!";
                 }
-                else
+                catch (Exception ex)
                 {
-                 //   MessageBox.Show("Invalid connection type for this device", "Error", MessageBoxButton.OK);
+                    message = $"Unable to connect!\r\n{ex.Message}";
                 }
-
-             //   Overlay.Hide();
-           // }));
+            }
+            else
+            {
+                //   MessageBox.Show("Invalid connection type for this device", "Error", MessageBoxButton.OK);
+            }
+            MessageDialog md = new MessageDialog("Connected!");
+            md.ShowAsync();
         }
 
         void _brick_BrickChanged(object sender, BrickChangedEventArgs e)
         {
-            //MotorA.Update(_brick);
-            //MotorB.Update(_brick);
-            //MotorC.Update(_brick);
-            //MotorD.Update(_brick);
 
-            //InputOne.Update(_brick);
-            //InputTwo.Update(_brick);
-            //InputThree.Update(_brick);
-            //InputFour.Update(_brick);
         }
-
-        //private void MotorSettingClicked(object sender, RoutedEventArgs routedEventArgs)
-        //{
-        //    var control = sender as MotorControl;
-
-        //    if (control != null)
-        //    {
-        //        MotorSettings.SaveSettings += MotorSettings_SaveSettings;
-
-        //        _selectedMotorControl = control;
-
-        //        MotorSettings.Show(
-        //            control.BrickInputPort,
-        //            _brick.Ports[control.BrickInputPort].Type,
-        //            control.MotorMovementType,
-        //            control.DegreeMovement,
-        //            control.PowerRatingMovement,
-        //            control.TimeToMoveInSeconds);
-        //    }
-        //}
-
-        //void MotorSettings_SaveSettings(object sender, MotorSettingsEventArgs e)
-        //{
-        //    if (_selectedMotorControl == null)
-        //        return;
-
-        //    MotorSettings.SaveSettings -= MotorSettings_SaveSettings;
-
-        //    _selectedMotorControl.MotorMovementType = e.MotorMovementType;
-        //    _selectedMotorControl.DegreeMovement = e.DegreeMovement;
-        //    _selectedMotorControl.PowerRatingMovement = e.PowerRatingMovement;
-        //    _selectedMotorControl.TimeToMoveInSeconds = e.TimeToMoveInSeconds;
-
-        //    _selectedMotorControl.UpdateUx();
-
-        //    _selectedMotorControl = null;
-        //}
-
-        //private async void MotorPlayClicked(object sender, RoutedEventArgs e)
-        //{
-        //    var control = sender as MotorControl;
-
-        //    if (control != null)
-        //    {
-        //        var output = control.BrickOutputPort;
-
-        //        if (control.MotorMovementType == MotorMovementTypes.Degrees)
-        //        {
-        //            await _brick.DirectCommand.StepMotorAtPowerAsync(output, control.PowerRatingMovement, 0, (uint)control.DegreeMovement, 0, false);
-        //        }
-        //        else
-        //        {
-        //            if (control.TimeToMoveInSeconds == 0)
-        //            {
-        //                await _brick.DirectCommand.TurnMotorAtPowerAsync(output, control.PowerRatingMovement);
-        //            }
-        //            else
-        //            {
-        //                await _brick.DirectCommand.TurnMotorAtPowerForTimeAsync(output, control.PowerRatingMovement, 0, (uint)control.TimeToMoveInSeconds * 1000, 0, false);
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private void SensorSettingClicked(object sender, RoutedEventArgs routedEventArgs)
-        //{
-        //    var control = sender as SensorDataControl;
-
-        //    if (control != null)
-        //    {
-        //        SensorSettings.SaveSettings += SensorSettings_SaveSettings;
-
-        //        _selectedSensorControl = control;
-
-        //        SensorSettings.Show(
-        //            control.BrickInputPort,
-        //            _brick.Ports[control.BrickInputPort].Type,
-        //            _brick.Ports[control.BrickInputPort].Mode);
-        //    }
-        //}
-
-        //void SensorSettings_SaveSettings(object sender, SensorSettingsEventArgs e)
-        //{
-        //    if (_selectedSensorControl == null)
-        //        return;
-
-        //    SensorSettings.SaveSettings -= SensorSettings_SaveSettings;
-
-        //    _brick.Ports[_selectedSensorControl.BrickInputPort].SetMode(e.SensorMode);
-        //    _selectedSensorControl.UpdateUx();
-
-        //    _selectedSensorControl = null;
-        //}
 
         private ICommunication CreateConnection()
         {
@@ -184,7 +61,7 @@ namespace SampleApp__UWP_
             //switch (ConnControl.GetConnectionType())
             //{
             //    case ConnectionType.Bluetooth:
-                    returnType = new BluetoothCommunication("EV3_PINI");
+            returnType = new BluetoothCommunication("EV3_PINI");
             //        break;
             //    case ConnectionType.Usb:
             //        returnType = new UsbCommunication();
@@ -205,6 +82,38 @@ namespace SampleApp__UWP_
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PlayToneClick(null, null);
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            await TestMotor(OutputPort.A);
+        }
+
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            await TestMotor(OutputPort.B);
+        }
+
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            await TestMotor(OutputPort.C);
+        }
+
+        private async void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            await TestMotor(OutputPort.D);
+        }
+
+        private async Task TestMotor(OutputPort port)
+        {
+            await _brick.DirectCommand.TurnMotorAtPowerAsync(port, 50);
+            await StopAfter(port, TimeSpan.FromSeconds(3));
+        }
+
+        private async Task StopAfter(OutputPort port, TimeSpan delay)
+        {
+            await Task.Delay(delay);
+            await _brick.DirectCommand.StopMotorAsync(port, true);
         }
     }
 }

@@ -11,5 +11,9 @@
     <StackPanel>
         <Button Click="TryToConnect" Content="Connect" />
         <Button Click="Button_Click" Content="Play sound" />
+        <Button Click="Button_Click_1" Content="Run A" />
+        <Button Click="Button_Click_2" Content="Run B" />
+        <Button Click="Button_Click_3" Content="Run C" />
+        <Button Click="Button_Click_4" Content="Run D" />
     </StackPanel>
 </Page>
